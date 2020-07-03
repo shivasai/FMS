@@ -32,6 +32,17 @@ namespace FMS_Web_Api.Controllers
         {
             return await _repository.GetParticipantFeedbacksForEvent(id);
         }
-
+        [HttpGet]
+        [Route("NotParticipatedFeedbacks/{id}")]
+        public async Task<IEnumerable<ParticipantFeedbackVM>> GetNotParticipatedFeedbacks(int id)
+        {
+            return await _repository.GetNotParticipatedFeedbacksForEvent(id);
+        }
+        [HttpGet]
+        [Route("UnregisteredFeedbacks/{id}")]
+        public async Task<IEnumerable<ParticipantFeedbackVM>> GetUnregisteredFeedbacks(int id)
+        {
+            return await _repository.GetUnregisteredFeedbacksForEvent(id);
+        }
     }
 }

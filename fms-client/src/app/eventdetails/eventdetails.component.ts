@@ -17,6 +17,8 @@ eventid: number;
 eventDetails : Events;
 eventPocDetails : Array<EventPocDetails>;
 participantFeedbacks : Array<ParticipantFeedback>;
+NotParticipatedFeedbacks : Array<ParticipantFeedback>;
+UnregisteredFeedbacks : Array<ParticipantFeedback>;
   constructor(private route: ActivatedRoute,private eventService: EventService) { }
 
   ngOnInit(): void {
@@ -35,6 +37,8 @@ participantFeedbacks : Array<ParticipantFeedback>;
 
      this.getPocDetails();
      this.getFbDetails();
+     this.getNotParticipatedFbDetails();
+     this.getUnregisteredFbDetails();
   }
   getPocDetails(){
     this.eventService.EventPocDetails(this.eventid)
@@ -57,6 +61,32 @@ participantFeedbacks : Array<ParticipantFeedback>;
                   console.log(data);
                     this.participantFeedbacks = data;
                     console.log(this.participantFeedbacks);
+                },
+                error => {
+                    
+                });
+  }
+  getNotParticipatedFbDetails(){
+    this.eventService.NotParticipatedFeedbackDetails(this.eventid)
+    .pipe(first())
+            .subscribe(
+                data => {
+                  console.log(data);
+                    this.NotParticipatedFeedbacks = data;
+                    console.log(this.NotParticipatedFeedbacks);
+                },
+                error => {
+                    
+                });
+  }
+  getUnregisteredFbDetails(){
+    this.eventService.UnregisteredFeedbackDetails(this.eventid)
+    .pipe(first())
+            .subscribe(
+                data => {
+                  console.log(data);
+                    this.UnregisteredFeedbacks = data;
+                    console.log(this.UnregisteredFeedbacks);
                 },
                 error => {
                     

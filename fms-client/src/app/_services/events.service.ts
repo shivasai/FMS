@@ -32,4 +32,16 @@ export class EventService {
                 return fbdetails;
             }));
     }
+    NotParticipatedFeedbackDetails(id:number) {
+        return this.http.get<any>(`${environment.apiUrl}/Feedback/NotParticipatedFeedbacks/`+id)
+            .pipe(map(fbdetails => {                              
+                return fbdetails;
+            }));
+    }
+    UnregisteredFeedbackDetails(id:number) {
+        return this.http.get<any>(`${environment.apiUrl}/Feedback/UnregisteredFeedbacks/`+id)
+            .pipe(map(fbdetails => {                              
+                return fbdetails;
+            }));
+    }
 }

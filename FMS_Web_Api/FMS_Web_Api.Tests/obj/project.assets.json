@@ -8957,11 +8957,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Dashanth\\source\\repos\\FMS_Web_Api\\FMS_Web_Api.Tests\\FMS_Web_Api.Tests.csproj",
+      "projectUniqueName": "C:\\Users\\Dashanth\\Desktop\\Tillu\\GIT\\FMS\\FMS_Web_Api\\FMS_Web_Api.Tests\\FMS_Web_Api.Tests.csproj",
       "projectName": "FMS_Web_Api.Tests",
-      "projectPath": "C:\\Users\\Dashanth\\source\\repos\\FMS_Web_Api\\FMS_Web_Api.Tests\\FMS_Web_Api.Tests.csproj",
+      "projectPath": "C:\\Users\\Dashanth\\Desktop\\Tillu\\GIT\\FMS\\FMS_Web_Api\\FMS_Web_Api.Tests\\FMS_Web_Api.Tests.csproj",
       "packagesPath": "C:\\Users\\Dashanth\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Dashanth\\source\\repos\\FMS_Web_Api\\FMS_Web_Api.Tests\\obj\\",
+      "outputPath": "C:\\Users\\Dashanth\\Desktop\\Tillu\\GIT\\FMS\\FMS_Web_Api\\FMS_Web_Api.Tests\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -8980,8 +8980,8 @@
       "frameworks": {
         "netcoreapp3.1": {
           "projectReferences": {
-            "C:\\Users\\Dashanth\\source\\repos\\FMS_Web_Api\\FMS_Web_Api\\FMS_Web_Api.csproj": {
-              "projectPath": "C:\\Users\\Dashanth\\source\\repos\\FMS_Web_Api\\FMS_Web_Api\\FMS_Web_Api.csproj"
+            "C:\\Users\\Dashanth\\Desktop\\Tillu\\GIT\\FMS\\FMS_Web_Api\\FMS_Web_Api\\FMS_Web_Api.csproj": {
+              "projectPath": "C:\\Users\\Dashanth\\Desktop\\Tillu\\GIT\\FMS\\FMS_Web_Api\\FMS_Web_Api\\FMS_Web_Api.csproj"
             }
           }
         }

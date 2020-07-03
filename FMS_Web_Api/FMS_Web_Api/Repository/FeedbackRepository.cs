@@ -64,8 +64,23 @@ namespace FMS_Web_Api.Repository
         // Get Participant feedback
         public async Task<IEnumerable<ParticipantFeedbackVM>> GetParticipantFeedbacksForEvent(int eventId)
         {
+            return await GetFeedbacksForEvent(eventId, "Participated");
+        }
+
+        //Not participated users feedback
+        public async Task<IEnumerable<ParticipantFeedbackVM>> GetNotParticipatedFeedbacksForEvent(int eventId)
+        {
+            return await GetFeedbacksForEvent(eventId, "NotParticipated");
+        }
+        //Unregistered users feedback
+        public async Task<IEnumerable<ParticipantFeedbackVM>> GetUnregisteredFeedbacksForEvent(int eventId)
+        {
+            return await GetFeedbacksForEvent(eventId, "Unregistered");
+        }
+        public async Task<IEnumerable<ParticipantFeedbackVM>> GetFeedbacksForEvent(int eventId, string ParticipantType)
+        {
             List<ParticipantFeedbackVM> fbVM = new List<ParticipantFeedbackVM>();
-            
+
             var allFeedbacks = await _participantFbRepository.GetAll();
             //List<string> participatedEmails = allFeedbacks.Where(x => x.EventId == eventId).Select(x=>x.Email).ToList();
             var distinctEmails = allFeedbacks.GroupBy(test => test.Email)
@@ -74,22 +89,20 @@ namespace FMS_Web_Api.Repository
             {
                 ParticipantFeedbackVM pfbVM = new ParticipantFeedbackVM();
                 pfbVM.Feedback = new List<string>();
-                var fbs = allFeedbacks.Where(x => x.Email == email.Email && x.ParticipantType == "Participated").Select(x => x.Answer).ToList();
-                foreach(var fb in fbs)
+                var fbs = allFeedbacks.Where(x => x.Email == email.Email && x.ParticipantType == ParticipantType).Select(x => x.Answer).ToList();
+                foreach (var fb in fbs)
                 {
-                   // Answer answer = new Answer();
-                   // answer.Ans = fb.ToString();
+                    // Answer answer = new Answer();
+                    // answer.Ans = fb.ToString();
                     pfbVM.Feedback.Add(fb);
                 }
                 if (pfbVM.Feedback.Count > 0)
                 {
                     fbVM.Add(pfbVM);
                 }
-                
+
             }
             return fbVM;
         }
-
-
     }
 }

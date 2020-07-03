@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace FMS_Web_Api.Repository
 {
+    
     public class EventRepository : EfCoreRepository<Event, ApplicationDbContext>
     {
         private readonly ApplicationDbContext _context;
