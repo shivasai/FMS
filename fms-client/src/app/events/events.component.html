@@ -1,0 +1,62 @@
+<div class="card mb-2">
+  <div class="card-header bg-primary ">
+    <div class="text-white text-uppercase">Actions</div>
+  </div>
+  <div class="card-body">    
+    <div class="row">       
+      <div class="col-md-6">          
+        <div class="alert alert-info"> 
+            <div class="row">
+            <div class="col-md-1 m-auto">
+                <h2><i class="fa fa-envelope" aria-hidden="true"></i></h2>
+            </div>  
+            <div class="col-md-11">        
+            <div>Email Remainder</div>
+            <span>Sit back and relax when the app send email</span>
+            <jqxButton class="btn bg-primary ml-2 mr-2 text-white" (onClick)="SendEmail()">Send Email</jqxButton>
+            <span *ngIf="emailStatusText">{{emailStatusText}}</span>
+          </div>
+        </div>
+        </div>               
+      </div>
+      <div class="col-md-6">        
+        <div class="alert alert-warning Actioncolumn">
+            <div class="text-right">
+                <div class="row">                     
+                    <div class="col-md-11">
+                         <div>Future Implementations</div>
+                        <span>A placeholder can be used for adding any other actions in future </span>
+                    </div>
+                    <div class="col-md-1 m-auto">
+                        <h2><i class="fa fa-envelope" aria-hidden="true"></i></h2>
+                    </div>
+             </div>         
+      </div>
+      </div>
+    </div>    
+    </div>
+</div>
+</div>
+    <div class="card" id='grid'>
+      <div class="card-header bg-primary ">
+        <div class="text-white text-uppercase">Events</div>
+      </div>
+      <div class="card-body">
+      <div class="float-right">
+                <jqxButton (onClick)="clearFiltering()" class="m-1 bg-danger text-white">Clear Filters</jqxButton>
+                 <jqxButton (onClick)="excelBtnOnClick()"class="bg-primary text-white" >Download Excel</jqxButton>            
+              </div>
+              <div class="">
+              <jqxGrid #jqGrid
+              [width]="getWidth()"  [source]="dataAdapter" [columns]="columns" [columnsresize]="true">
+             </jqxGrid>
+            </div>
+           
+            </div>
+      </div>
+    
+
+
+    
+
+  

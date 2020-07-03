@@ -1,0 +1,171 @@
+<div class="container-fluid">
+  <div class="card mb-2 text-center">
+    <div class="card-header bg-primary">
+      <div class="text-uppercase text-white">Event & Benificiary details</div>
+    </div> 
+    <div class="card-body">
+      <div class="container-fluid">
+        <div class="row">
+          <div class="col-sm">
+            <div class="card">
+              <div class="card-header bg-primary">
+                <div class="row">
+                  <div class="col-sm-6 text-white">ID : {{ eventDetails.eventId }}</div>
+                  <div class="col-sm-6 text-white">Date : {{ eventDetails.eventDate | date }}</div> 
+                </div>                
+              </div>  
+              <div class="card-body">
+                <div class="card">
+                  <!-- <div class="card-header">Header</div> -->
+                  <div class="card-body">{{ eventDetails.eventDescription }}</div>
+                  <div class="card-footer">
+                    <div class="row">
+                      <div class="col-sm-6">Status : {{ eventDetails.status }}</div>
+                      <div class="col-sm-6">Category : {{ eventDetails.category }}</div> 
+                    </div>  
+                  </div>
+                </div>
+              </div>  
+            </div>            
+          </div>
+          <div class="col-sm">
+            <div class="card">
+              <div class="card-header bg-primary">
+                <div class="row">
+                  <div class="col-sm-6 text-uppercase text-white">Location : {{ eventDetails.baseLocation }}</div>
+                  <div class="col-sm-6 text-uppercase text-white">Council : {{ eventDetails.councilName }}</div> 
+                </div>  
+              </div> 
+              <div class="card-body">
+                <div class="card">
+                  <!-- <div class="card-header">Header</div> -->
+                  <div class="card-body">{{ eventDetails.venueAddress }}</div>
+                  <div class="card-footer">
+                    <div class="row">
+                      <div class="col-sm-6 text-uppercase">Feedbacks : 4</div>
+                      <div class="col-sm-6 text-uppercase">Average Rating : 4</div> 
+                    </div> 
+                  </div>
+                </div>
+              </div>   
+            </div>            
+          </div>    
+        </div>
+      </div>
+    </div>
+  </div>  
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm">
+      <div class="card mb-2">
+        <div class="card-header bg-primary">
+          <div class="text-uppercase text-white">Participates</div>
+        </div>  
+        <div class="card-body">
+          <div class="card mb-2" *ngFor="let fbs of participantFeedbacks">
+            <!-- <div class="card-header">Header</div> -->
+            <div class="card-body">
+              <div class="row" *ngFor="let fb of fbs">
+                {{fb}}
+              </div>
+            </div>
+            <!-- <div class="card-footer">Footer</div> -->
+          </div>
+          <!-- <div class="card">
+            <div class="card-header">Header</div>
+            <div class="card-body">Content</div>
+            <div class="card-footer">Footer</div>
+          </div> -->
+        </div>  
+      </div>    
+    </div>
+    <div class="col-sm">
+      <div class="card mb-2">
+        <div class="card-header bg-primary">
+          <div class="text-uppercase text-white">Non Participates</div>
+        </div>
+        <div class="card-body">
+          <div class="card">
+          <div class="card-header">Header</div>
+        </div>
+      </div>    
+      </div>     
+    </div>
+    <div class="col-sm">
+      <div class="card mb-2">
+        <div class="card-header bg-primary">
+          <div class="text-uppercase text-white">Unregistered</div>        
+        </div> 
+        <div class="card-body">
+          <div class="card">
+            <div class="card-header">Header</div>
+          </div>
+        </div>   
+      </div>      
+    </div>
+  </div>
+</div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-sm">
+          <div class="card mb-2">
+            <div class="card-header bg-primary">
+              <div class="text-uppercase text-white">Statatics</div>
+            </div> 
+            <div class="card-body">
+              <table class="table table-bordered">
+                <thead class="bg-primary">
+                  <tr class="text-white text-uppercase text-center">
+                    <th scope="col">Average rating</th>
+                    <th scope="col">Volunteers</th>
+                    <th scope="col">Volunteering Hours</th>
+                    <th scope="col">Overall Hours</th>
+                    <th scope="col">travels Hours</th>
+                    <th scope="col">Live Impacted</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr class="text-center">
+                    <td>4</td>
+                    <td>{{eventDetails.totalNoOfVolunteers}}</td>
+                    <td>{{eventDetails.totalVolunteerHours}}</td>
+                    <td>{{eventDetails.overallVolunteeringHours}}</td>
+                    <td>{{eventDetails.totalTravelHours}}</td>
+                    <td>{{eventDetails.livesImpacted}}</td>
+                  </tr>                 
+                </tbody>
+              </table>
+            </div>   
+          </div>         
+        </div>
+        <div class="col-sm">
+          <div class="card mb-2">
+            <div class="card-header bg-primary">
+              <div class="text-uppercase text-white">POC Details</div>
+            </div>   
+            <div class="card-body">
+              <table class="table table-bordered">
+                <thead class="bg-primary">
+                  <tr class="text-white text-uppercase text-center">
+                    <th scope="col">#</th>
+                    <th scope="col">Employee ID</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Contact Number</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr *ngFor="let poc of eventPocDetails; let i=index;" class="text-center">
+                    <td>{{i + 1}}</td>
+                    <td>{{poc.empId}}</td>
+                    <td>{{poc.name}}</td>
+                    <td>{{poc.contactNumber}}</td>
+                  </tr>                 
+                </tbody>
+              </table>
+            </div> 
+          </div>          
+        </div>    
+      </div>
+    </div>

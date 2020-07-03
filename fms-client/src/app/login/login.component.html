@@ -1,0 +1,59 @@
+﻿<div class="row  p-5">
+<div class="col-md-6">
+<img class="img-fluid" width="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcRYfStfzju2XZpNqo1MDHWtIjVZJnItddYxnA&usqp=CAU" />
+</div>
+<div class="col-md-6">
+    <div class="p-3">
+        <img class="img-fluid" width="100%" src="https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSv_iC_JUXNygyOBJWDG1tLaBftKLXKQJhLrg&usqp=CAU" />
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+            <div class="form-group">
+                <input type="text" placeholder="Enter username" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                    <div *ngIf="f.username.errors.required">Username is required</div>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="password" placeholder="Enter password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                    <div *ngIf="f.password.errors.required">Password is required</div>
+                </div>
+            </div>
+            <button [disabled]="loading" class="btn btn-primary">
+                <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                Login
+            </button>
+            <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+        </form>
+    </div>
+    <!-- <div class="alert alert-info">
+        <strong>Normal User</strong> - U: user P: user<br />
+        <strong>Administrator</strong> - U: admin P: admin
+    </div> -->
+    <!-- <div class="card">
+        <h4 class="card-header"Feedback Management System</h4>
+        <div class="card-body">
+            <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+                <div class="form-group">
+                    <label for="username">Username</label>
+                    <input type="text" formControlName="username" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                    <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                        <div *ngIf="f.username.errors.required">Username is required</div>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" formControlName="password" class="form-control" [ngClass]="{ 'is-invalid': submitted && f.password.errors }" />
+                    <div *ngIf="submitted && f.password.errors" class="invalid-feedback">
+                        <div *ngIf="f.password.errors.required">Password is required</div>
+                    </div>
+                </div>
+                <button [disabled]="loading" class="btn btn-primary">
+                    <span *ngIf="loading" class="spinner-border spinner-border-sm mr-1"></span>
+                    Login
+                </button>
+                <div *ngIf="error" class="alert alert-danger mt-3 mb-0">{{error}}</div>
+            </form>
+        </div>
+    </div> -->
+</div>            
+</div>

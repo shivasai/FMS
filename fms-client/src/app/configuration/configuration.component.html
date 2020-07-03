@@ -1,0 +1,45 @@
+<div class="row mt-3 mb-2">
+    <div class="container-fluid">
+        <div class="card">
+            <div class="card-header bg-primary text-white">
+              ASSIGN PMO
+            </div>
+            <div class="card-body">
+               
+                    <form [formGroup]="pmoForm" (ngSubmit)="onSubmit()" class="form-inline">
+                        <div class="form-group">                                                 
+                          
+                            <label for="email">Employee Id:</label>
+                            <input type="text" placeholder="Enter Email" formControlName="username" class="ml-2" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
+                            <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
+                                <div *ngIf="f.username.errors.required">Email is required</div>
+                                
+                            </div>
+                        
+                          <button class="bg-primary text-white ml-3">Add PMO</button>
+                          <button type="button" class="bg-danger text-white ml-3">Remove PMO</button>
+                          <div class="bg-primary" *ngIf="success">{{success}}</div>
+                          <div class="bg-danger" *ngIf="error">{{error}}</div>
+                        </div>                    
+                        
+                      </form>
+                </div>
+                
+           
+          </div>
+    </div>    
+</div>
+<div class="card">
+  <div class="card-header bg-primary ">
+    <div class="text-white text-uppercase">Events</div>
+  </div>
+  <div class="card-body">
+       <div class="float-right">
+        <jqxButton (onClick)="clearFiltering()" class="m-1 bg-danger text-white">Clear Filters</jqxButton>
+         <jqxButton (onClick)="excelBtnOnClick()"class="bg-primary text-white" >Download Excel</jqxButton>            
+      </div>
+      <jqxGrid #jqGrid (onRowselect)="myGridOnRowSelect($event)"
+      [width]="getWidth()"  [source]="dataAdapter" [columns]="columns" [columnsresize]="true">
+     </jqxGrid>
+      </div>
+

@@ -1,0 +1,49 @@
+﻿<!-- nav -->
+<nav class="navbar navbar-expand navbar-primary bg-primary" *ngIf="user">
+    <div class="container-fluid px-3">
+        <a class="navbar-brand"routerLink="/">
+            <h4 class="text-white">Outreach FMS</h4>
+            <!-- <img src="http://placehold.it/150x50?text=Logo" alt=""> -->
+          </a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="nav navbar-nav col-md-10">
+        <li><a class="nav-item nav-link text-white text-left" routerLink="/"><i class="fa fa-tachometer" aria-hidden="true"></i> Dashboard</a></li>
+         <li><a class="nav-item nav-link text-white" routerLink="/events">Events</a></li>
+        <li><a class="nav-item nav-link text-white" routerLink="/reports"><i class="fa fa-file" aria-hidden="true"></i> Reports</a></li>        
+        <!-- <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle text-white" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Configuration
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" routerLink="/configuration">Configuration</a>
+              <a class="dropdown-item" routerLink="/Feedback">Feedback</a>              
+            </div>
+          </li> -->
+        <li *ngIf="user.role == 'Admin'"><a class="nav-item nav-link text-white" routerLink="/configuration"><i class="fa fa-cog" aria-hidden="true"></i> Configuration</a></li>
+        <li *ngIf="user.role == 'Admin'"><a class="nav-item nav-link text-white" routerLink="/feedback"><i class="fa fa-cog" aria-hidden="true"></i> Feedback</a></li>
+                    </ul>
+                    <div class="col-md-2">
+                        <ul class="nav navbar-nav float-right">
+                        <li><a class="nav-item nav-link text-white text-right" routerLink="/admin">Admin</a> </li>
+                        <li><a class="nav-item nav-link text-white text-right" (click)="logout()">Logout</a></li>
+                    </ul>
+                    </div>
+            </div>
+
+
+    </div>
+</nav>
+
+<!-- main app container -->
+<div class="container-fluid">
+    <router-outlet></router-outlet>
+</div>
+
+<!-- credits -->
+<div class="text-center mt-4">
+    <p>&#169; 2019 Outreach Feedback management System - Cognizant All Rights Reserved</p>
+   
+</div>
