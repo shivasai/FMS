@@ -477,8 +477,11 @@ C:\Users\Dashanth\Desktop\Tillu\GIT\FMS\FMS_Web_Api\FMS_Web_Api.Tests\bin\Debug\
 C:\Users\Dashanth\Desktop\Tillu\GIT\FMS\FMS_Web_Api\FMS_Web_Api.Tests\obj\Debug\netcoreapp3.1\FMS_Web_Api.Tests.csprojAssemblyReference.cache
 C:\Users\Dashanth\Desktop\Tillu\GIT\FMS\FMS_Web_Api\FMS_Web_Api.Tests\obj\Debug\netcoreapp3.1\FMS_Web_Api.Tests.AssemblyInfoInputs.cache
 C:\Users\Dashanth\Desktop\Tillu\GIT\FMS\FMS_Web_Api\FMS_Web_Api.Tests\obj\Debug\netcoreapp3.1\FMS_Web_Api.Tests.AssemblyInfo.cs
-C:\Users\Dashanth\Desktop\Tillu\GIT\FMS\FMS_Web_Api\FMS_Web_Api.Tests\obj\Debug\netcoreapp3.1\FMS_Web_Api.Tests.csproj.CoreCompileInputs.cache
 C:\Users\Dashanth\Desktop\Tillu\GIT\FMS\FMS_Web_Api\FMS_Web_Api.Tests\obj\Debug\netcoreapp3.1\FMS_Web_Api.Tests.csproj.CopyComplete
 C:\Users\Dashanth\Desktop\Tillu\GIT\FMS\FMS_Web_Api\FMS_Web_Api.Tests\obj\Debug\netcoreapp3.1\FMS_Web_Api.Tests.dll
 C:\Users\Dashanth\Desktop\Tillu\GIT\FMS\FMS_Web_Api\FMS_Web_Api.Tests\obj\Debug\netcoreapp3.1\FMS_Web_Api.Tests.pdb
 C:\Users\Dashanth\Desktop\Tillu\GIT\FMS\FMS_Web_Api\FMS_Web_Api.Tests\obj\Debug\netcoreapp3.1\FMS_Web_Api.Tests.genruntimeconfig.cache
+C:\Users\Dashanth\Desktop\Tillu\GIT\FMS\FMS_Web_Api\FMS_Web_Api.Tests\obj\Debug\netcoreapp3.1\FMS_Web_Api.Tests.csproj.CoreCompileInputs.cache
+C:\Users\Dashanth\Desktop\Tillu\GIT\FMS\FMS_Web_Api\FMS_Web_Api.Tests\bin\Debug\netcoreapp3.1\System.Net.Http.Formatting.dll
+C:\Users\Dashanth\Desktop\Tillu\GIT\FMS\FMS_Web_Api\FMS_Web_Api.Tests\bin\Debug\netcoreapp3.1\System.Web.Http.dll
+C:\Users\Dashanth\Desktop\Tillu\GIT\FMS\FMS_Web_Api\FMS_Web_Api.Tests\bin\Debug\netcoreapp3.1\Newtonsoft.Json.Bson.dll

@@ -1,0 +1,24 @@
+
+      <div class="card" id='grid'>
+        <div class="card-header bg-primary ">
+          <div class="text-white text-uppercase">Events</div>
+        </div>
+        <div class="card-body">
+        <div class="float-right">
+                  <jqxButton (onClick)="clearFiltering()" class="m-1 bg-danger text-white">Clear Filters</jqxButton>
+                   <jqxButton (onClick)="excelBtnOnClick()"class="bg-primary text-white" >Download Excel</jqxButton>            
+                </div>
+                <div class="">
+                <jqxGrid #jqGrid
+                [width]="getWidth()"  [source]="dataAdapter" [columns]="columns" [columnsresize]="true">
+               </jqxGrid>
+              </div>
+             
+              </div>
+        </div>
+      
+  
+  
+      
+  
+    

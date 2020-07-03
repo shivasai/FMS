@@ -22,11 +22,11 @@ import { JqwgridComponent } from './jqwgrid/jqwgrid.component';
 import { ConfigurationComponent } from './configuration';
 import { FeedbackComponent } from './feedback/feedback.component'
 ;
-import { FeedbackdetailsComponent } from './feedbackdetails/feedbackdetails.component';;
+import { FeedbackdetailsComponent } from './feedbackdetails/feedbackdetails.component';
 import { ParticipantfeedbackComponent } from './participantfeedback/participantfeedback.component'
-import { EventdetailsComponent } from './eventdetails/Eventdetails.component';
+import { EventdetailsComponent } from './eventdetails/Eventdetails.component';;
+import { ReportComponent } from './report/report.component'
 
-//import { ReportsComponent } from './reports/reports.component';
 
 @NgModule({
     imports: [
@@ -47,14 +47,12 @@ import { EventdetailsComponent } from './eventdetails/Eventdetails.component';
         DashboardComponent ,
         EventsComponent ,
         JqwgridComponent,
-        ConfigurationComponent
-,
+        ConfigurationComponent,
         FeedbackComponent ,
         FeedbackdetailsComponent ,
-        ParticipantfeedbackComponent,              
-        //ReportsComponent ,
+        ParticipantfeedbackComponent,                      
         EventdetailsComponent
-     ],
+, ReportComponent     ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

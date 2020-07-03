@@ -14,8 +14,8 @@ namespace FMS_Web_Api.Controllers
     [ApiController]
     public class FeedbackController : ControllerBase
     {
-        private readonly FeedbackRepository _repository;
-        public FeedbackController(FeedbackRepository feedbackRepository)
+        private readonly IFeedbackRepository _repository;
+        public FeedbackController(IFeedbackRepository feedbackRepository)
         {
             _repository = feedbackRepository;
         }

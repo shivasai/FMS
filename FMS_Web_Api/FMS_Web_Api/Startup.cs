@@ -47,7 +47,10 @@ namespace FMS_Web_Api
             services.AddScoped<FeedbackOptionRepository>();
             services.AddScoped<FeedbackRepository>();
             services.AddScoped<EventParticipatedUsersRepository>();
-            services.AddScoped<ParticipantFeedbackRepository>();            
+            services.AddScoped<ParticipantFeedbackRepository>();
+            services.AddScoped<IEventRepository, EventRepository>();
+            services.AddScoped<IDashboardRepository, DashboardRepository>();
+            services.AddScoped<IFeedbackRepository, FeedbackRepository>();
             // configure strongly typed settings objects	    
             var jwtSection = Configuration.GetSection("JwtBearerTokenSettings");
             services.Configure<JwtBearerTokenSettings>(jwtSection);

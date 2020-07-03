@@ -14,8 +14,8 @@ namespace FMS_Web_Api.Controllers
     [ApiController]
     public class DashboardController : ControllerBase
     {
-        private readonly DashboardRepository _repository;
-        public DashboardController(DashboardRepository repository)
+        private readonly IDashboardRepository _repository;
+        public DashboardController(IDashboardRepository repository)
         {
             _repository = repository;
         }

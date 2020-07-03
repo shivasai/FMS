@@ -5,7 +5,6 @@ import { AdminComponent } from './admin';
 import { LoginComponent } from './login';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { EventsComponent } from './events/events.component';
-import { ReportsComponent } from './reports/Reports.component';
 import { EventdetailsComponent } from './eventdetails/Eventdetails.component';
 import { JqwgridComponent } from './jqwgrid/jqwgrid.component';
 import { AuthGuard } from './_helpers';
@@ -14,6 +13,7 @@ import { ConfigurationComponent } from './configuration/configuration.component'
 import { FeedbackComponent } from './feedback/feedback.component';
 import { FeedbackdetailsComponent } from './feedbackdetails/feedbackdetails.component';
 import { ParticipantfeedbackComponent } from './participantfeedback/participantfeedback.component';
+import { ReportComponent } from './report/report.component';
 
 const routes: Routes = [
     {
@@ -34,11 +34,7 @@ const routes: Routes = [
     {
         path: 'events',
         component: EventsComponent
-    },
-    {
-        path: 'reports',
-        component: ReportsComponent
-    },
+    },   
     {
         path: 'eventdetails',
         component: EventdetailsComponent
@@ -62,6 +58,10 @@ const routes: Routes = [
     {
         path: 'participantfeedback',
         component: ParticipantfeedbackComponent
+    },
+    {
+        path: 'report',
+        component: ReportComponent
     },
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

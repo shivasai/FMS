@@ -6,7 +6,11 @@ using System.Threading.Tasks;
 
 namespace FMS_Web_Api.Repository
 {
-    public class DashboardRepository
+    public interface IDashboardRepository
+    {
+        Task<DashboardVM> Get();
+    }
+    public class DashboardRepository : IDashboardRepository
     {
         public readonly EventRepository _eventRepository;
         public readonly EventParticipatedUsersRepository _eventParticipatedUserRepository;

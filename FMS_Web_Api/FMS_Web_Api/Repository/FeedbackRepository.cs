@@ -7,7 +7,15 @@ using System.Threading.Tasks;
 
 namespace FMS_Web_Api.Repository
 {
-    public class FeedbackRepository
+    public interface IFeedbackRepository
+    {
+        public Task<FeedbackVM> SaveFeedbackQuestionAndAnswers(FeedbackVM feedbackVM);
+        public Task<IEnumerable<FeedbackVM>> GetFeedbackQuestions();
+        public Task<IEnumerable<ParticipantFeedbackVM>> GetParticipantFeedbacksForEvent(int eventId);
+        public Task<IEnumerable<ParticipantFeedbackVM>> GetNotParticipatedFeedbacksForEvent(int eventId);
+        public Task<IEnumerable<ParticipantFeedbackVM>> GetUnregisteredFeedbacksForEvent(int eventId);
+    }
+    public class FeedbackRepository : IFeedbackRepository
     {
         public readonly FeedbackQuestionRepository _fbQuestionRepository;
         public readonly FeedbackOptionRepository _fbOptionRepository;
@@ -77,7 +85,7 @@ namespace FMS_Web_Api.Repository
         {
             return await GetFeedbacksForEvent(eventId, "Unregistered");
         }
-        public async Task<IEnumerable<ParticipantFeedbackVM>> GetFeedbacksForEvent(int eventId, string ParticipantType)
+        private async Task<IEnumerable<ParticipantFeedbackVM>> GetFeedbacksForEvent(int eventId, string ParticipantType)
         {
             List<ParticipantFeedbackVM> fbVM = new List<ParticipantFeedbackVM>();
 
