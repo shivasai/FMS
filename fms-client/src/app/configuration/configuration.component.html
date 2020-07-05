@@ -17,7 +17,7 @@
                             </div>
                         
                           <button class="bg-primary text-white ml-3">Add PMO</button>
-                          <button type="button" class="bg-danger text-white ml-3">Remove PMO</button>
+                          <button type="button" (click)="RemovePMO()" class="bg-danger text-white ml-3">Remove PMO</button>
                           <div class="bg-primary" *ngIf="success">{{success}}</div>
                           <div class="bg-danger" *ngIf="error">{{error}}</div>
                         </div>                    

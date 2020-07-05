@@ -8,9 +8,11 @@ using Microsoft.EntityFrameworkCore;
 using FMS_Web_Api.DAL;
 using FMS_Web_Api.Models;
 using FMS_Web_Api.Repository;
+using Microsoft.AspNetCore.Authorization;
 
 namespace FMS_Web_Api.Controllers
 {
+    [Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class EventsController : ControllerBase
@@ -21,7 +23,7 @@ namespace FMS_Web_Api.Controllers
         {
             _repository = repository;
         }
-
+        [AllowAnonymous]
         // GET: api/Events
         [HttpGet]
         public async Task<ActionResult<IEnumerable<Event>>> GetEvent()

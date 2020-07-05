@@ -14,6 +14,8 @@ import { FeedbackComponent } from './feedback/feedback.component';
 import { FeedbackdetailsComponent } from './feedbackdetails/feedbackdetails.component';
 import { ParticipantfeedbackComponent } from './participantfeedback/participantfeedback.component';
 import { ReportComponent } from './report/report.component';
+import { ThankyouComponent } from './thankyou/thankyou.component';
+import { DataFeedComponent } from './data-feed/data-feed.component';
 
 const routes: Routes = [
     {
@@ -62,6 +64,14 @@ const routes: Routes = [
     {
         path: 'report',
         component: ReportComponent
+    },
+    {
+        path: 'thankyou',
+        component: ThankyouComponent
+    },
+    {
+        path: 'datafeed',
+        component: DataFeedComponent
     },
     // otherwise redirect to home
     { path: '**', redirectTo: '' }

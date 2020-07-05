@@ -48,4 +48,11 @@ export class AuthenticationService {
                 return user;
             }));
     }
+    removePMO(email:string){
+        return this.http.post<any>(`${environment.apiUrl}/auth/RemovePmoUser`, { email })
+            .pipe(map(user => {
+                // store user details and jwt token in local storage to keep user logged in between page refreshes                
+                return user;
+            }));
+    }
 }

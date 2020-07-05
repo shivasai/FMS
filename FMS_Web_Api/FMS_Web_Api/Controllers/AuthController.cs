@@ -74,6 +74,19 @@ namespace FMS_Web_Api.Controllers
             return pmoUsers;
         }
         [HttpPost]
+        [Route("RemovePmoUser")]
+        public async Task<ActionResult> RemovePmoUser([FromBody] PMOUser userdetails)
+        {
+            string username = userdetails.email.Substring(0, userdetails.email.IndexOf("@"));
+            var user = await userManager.FindByNameAsync(username);
+            if(user == null)
+            {
+                return NotFound();
+            }
+           await userManager.RemoveFromRoleAsync(user, "PMO");
+            return Ok();
+        }
+        [HttpPost]
         [Route("RegisterPMO")]
         public async Task<IActionResult> RegisterPMO([FromBody] PMOUser userdetails)
         {

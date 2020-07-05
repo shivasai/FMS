@@ -24,10 +24,11 @@
           </li> -->
         <li *ngIf="user.role == 'Admin'"><a class="nav-item nav-link text-white" routerLink="/configuration"><i class="fa fa-cog" aria-hidden="true"></i> Configuration</a></li>
         <li *ngIf="user.role == 'Admin'"><a class="nav-item nav-link text-white" routerLink="/feedback"><i class="fa fa-cog" aria-hidden="true"></i> Feedback</a></li>
+        <li *ngIf="user.role == 'Admin'"><a class="nav-item nav-link text-white" routerLink="/datafeed"><i class="fa fa-cog" aria-hidden="true"></i> Data Feed</a></li>
                     </ul>
                     <div class="col-md-2">
                         <ul class="nav navbar-nav float-right">
-                        <li><a class="nav-item nav-link text-white text-right" routerLink="/admin">Admin</a> </li>
+                        <!-- <li><a class="nav-item nav-link text-white text-right" routerLink="/admin">Admin</a> </li> -->
                         <li><a class="nav-item nav-link text-white text-right" (click)="logout()">Logout</a></li>
                     </ul>
                     </div>

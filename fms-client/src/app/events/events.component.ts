@@ -5,13 +5,18 @@ import{ jqxButtonComponent } from 'jqwidgets-ng/jqxbuttons';
 import { environment } from '@environments/environment';
 import { Router } from '@angular/router';
 import { EmailService } from '@app/_services/email.service';
+import { User } from '@app/_models';
+import { AuthenticationService } from '@app/_services';
 @Component({
   selector: 'app-events',
   templateUrl: './events.component.html',
   styleUrls: ['./events.component.less']
 })
 export class EventsComponent implements OnInit {
-  constructor(private router: Router, private emailService: EmailService) { }
+  user: User;
+  constructor(private router: Router, private emailService: EmailService,private authenticationService: AuthenticationService) { 
+    this.authenticationService.user.subscribe(x => this.user = x);
+  }
   emailStatusText : string;
   ngOnInit(): void {
   }

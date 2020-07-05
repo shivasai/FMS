@@ -26,8 +26,10 @@ import { FeedbackdetailsComponent } from './feedbackdetails/feedbackdetails.comp
 import { ParticipantfeedbackComponent } from './participantfeedback/participantfeedback.component'
 import { EventdetailsComponent } from './eventdetails/Eventdetails.component';;
 import { ReportComponent } from './report/report.component'
-
-
+;
+import { ThankyouComponent } from './thankyou/thankyou.component'
+;
+import { DataFeedComponent } from './data-feed/data-feed.component'
 @NgModule({
     imports: [
         BrowserModule,    
@@ -52,7 +54,7 @@ import { ReportComponent } from './report/report.component'
         FeedbackdetailsComponent ,
         ParticipantfeedbackComponent,                      
         EventdetailsComponent
-, ReportComponent     ],
+, ReportComponent , ThankyouComponent , DataFeedComponent   ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },
         { provide: HTTP_INTERCEPTORS, useClass: ErrorInterceptor, multi: true },

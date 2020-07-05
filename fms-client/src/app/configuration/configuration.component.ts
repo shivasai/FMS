@@ -4,6 +4,7 @@ import { AuthenticationService } from '@app/_services';
 import { first } from 'rxjs/operators';
 import { jqxGridComponent } from 'jqwidgets-ng/jqxgrid';
 import { environment } from '@environments/environment';
+import { TextAttribute } from '@angular/compiler/src/render3/r3_ast';
 
 @Component({
   selector: 'app-configuration',
@@ -57,6 +58,28 @@ export class ConfigurationComponent implements OnInit {
                     setTimeout(()=>{    //<<<---    using ()=> syntax
                       this.error = '';
                  }, 3000);
+                });
+  }
+  RemovePMO(){
+    this.loading=true;
+    this.authenticationService.removePMO(this.f.username.value)
+            .pipe(first())
+            .subscribe(
+                data => {
+                  this.success="User role removed successfully";
+                    this.loading=false;
+                    setTimeout(()=>{    //<<<---    using ()=> syntax
+                      this.success = '';
+                      this.reloadData();
+                 }, 3000);
+                  
+                },
+                error => {
+                  this.loading=false;
+                  this.success="User not found";
+                  setTimeout(()=>{    //<<<---    using ()=> syntax
+                    this.success = '';
+               }, 3000);
                 });
   }
 reloadData(){
