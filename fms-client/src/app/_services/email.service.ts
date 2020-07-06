@@ -20,5 +20,12 @@ export class EmailService {
                 return emaildetails;
             }));
     }
+    SendReport(email:string) {
+        console.log("service")
+        return this.http.post<any>(`${environment.emailServiceUrl}/MailService/SendReport`, { email })
+            .pipe(map(reportdetails => {                              
+                return reportdetails;
+            }));
+    }
 
 }

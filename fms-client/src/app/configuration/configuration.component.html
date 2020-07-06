@@ -13,7 +13,7 @@
                             <input type="text" placeholder="Enter Email" formControlName="username" class="ml-2" [ngClass]="{ 'is-invalid': submitted && f.username.errors }" />
                             <div *ngIf="submitted && f.username.errors" class="invalid-feedback">
                                 <div *ngIf="f.username.errors.required">Email is required</div>
-                                
+                                <div *ngIf="f.username.errors.email">Email is invalid</div>
                             </div>
                         
                           <button class="bg-primary text-white ml-3">Add PMO</button>

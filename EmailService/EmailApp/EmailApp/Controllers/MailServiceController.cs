@@ -29,6 +29,13 @@ namespace EmailApp.Controllers
             await _emailRepository.GenerateEmails(events);
             
             return Ok();
-        }        
+        }
+        [HttpPost]
+        [Route("SendReport")]
+        public async Task<ActionResult> SendReport([FromBody] Report report)
+        {
+            await _emailRepository.SendReport(report.Email);
+            return Ok();
+        }
     }
 }
