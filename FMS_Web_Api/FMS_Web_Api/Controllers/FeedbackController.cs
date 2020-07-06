@@ -25,23 +25,23 @@ namespace FMS_Web_Api.Controllers
         // GET: api/<FeedbackController>
         [HttpGet]
         public async Task<IEnumerable<FeedbackVM>> Get()
-        {
-            
+        {           
             return await _repository.GetFeedbackQuestions();
         }
         [AllowAnonymous]
         [HttpPost]
         [Route("FeedbacksByParticipants")]
         public async Task<IEnumerable<FeedbackVM>> PostFeedbackQuestionsByParticipantType([FromBody] PostFeedback postFeedback)
-        {
+        {            
             return await _repository.GetFeedbackQuestionsByParticipantType(postFeedback);
             
-        }
+        }        
         [HttpGet("{id}")]
         public async Task<FeedbackVM> Get(int id)
         {
             return await _repository.GetFeedbackQuestionById(id);
         }
+        [AllowAnonymous]
         [HttpPost]
         public async Task<PostFeedback> Post([FromBody] PostFeedback postFeedback)
         {
@@ -53,7 +53,6 @@ namespace FMS_Web_Api.Controllers
         public async Task<ActionResult> PostParticipantFeedback([FromBody] List<ParticipantFeedback> participantFeedbacks)
         {
             await _repository.InsertParticipantFeedbacks(participantFeedbacks);
-            // return await _repository.SaveFeedbackQuestionAndAnswers(postFeedback);
             return Ok();
         }
         [HttpDelete("{id}")]

@@ -31,7 +31,7 @@ namespace FMS_Web_Api.Controllers
             return await _repository.GetAll();
             //return await _context.Events.ToListAsync();
         }
-
+        [AllowAnonymous]
         // GET: api/Events/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Event>> GetEvent(int id)

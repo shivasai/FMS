@@ -10,8 +10,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace FMS_Web_Api.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20200702071641_poctable")]
-    partial class poctable
+    [Migration("20200706060119_initial")]
+    partial class initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -204,6 +204,33 @@ namespace FMS_Web_Api.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("FeedbackQuestions");
+                });
+
+            modelBuilder.Entity("FMS_Web_Api.Models.ParticipantFeedback", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int")
+                        .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
+
+                    b.Property<string>("Answer")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("EventId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("ParticipantType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("QuestionId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("ParticipantFeedbacks");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>

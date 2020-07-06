@@ -19,8 +19,10 @@ export class FeedbackdetailsComponent implements OnInit {
   successtext="";
   ngOnInit(): void {    
     this.questionId = this.route.snapshot.queryParams['qId'];
+
     console.log("Question id " + this.questionId);
-    this.feedbackService.GetFeedbackQuestion(this.questionId)
+    if(this.questionId != undefined){
+      this.feedbackService.GetFeedbackQuestion(this.questionId)
     .pipe(first())
             .subscribe(
                 data => {
@@ -37,6 +39,8 @@ export class FeedbackdetailsComponent implements OnInit {
                 error => {
                   
                 });
+    }
+    
 
   }
   questionForm = this.fb.group({
@@ -58,7 +62,7 @@ export class FeedbackdetailsComponent implements OnInit {
       return;
     }
     //console.log(this.f.QuestionType.value);
-    this.feedbackQuestion.Id = +this.questionId;
+    this.feedbackQuestion.Id = this.questionId == undefined? 0 : +this.questionId;
     this.feedbackQuestion.Question = this.f.Question.value;
     this.feedbackQuestion.ParticipantType = this.f.ParticipantType.value;
     this.feedbackQuestion.QuestionTye = this.f.QuestionType.value;

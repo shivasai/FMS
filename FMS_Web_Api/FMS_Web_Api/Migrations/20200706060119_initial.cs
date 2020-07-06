@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace FMS_Web_Api.Migrations
 {
-    public partial class InitialCreate : Migration
+    public partial class initial : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -47,6 +47,50 @@ namespace FMS_Web_Api.Migrations
                 });
 
             migrationBuilder.CreateTable(
+                name: "EventNotParticipatedUsers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EventId = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EventNotParticipatedUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "EventParticipatedUsers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EventId = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EventParticipatedUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "EventPocDetails",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EventId = table.Column<int>(nullable: false),
+                    EmpId = table.Column<string>(nullable: true),
+                    Name = table.Column<string>(nullable: true),
+                    ContactNumber = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EventPocDetails", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
                 name: "Events",
                 columns: table => new
                 {
@@ -69,14 +113,57 @@ namespace FMS_Web_Api.Migrations
                     OverallVolunteeringHours = table.Column<double>(nullable: false),
                     LivesImpacted = table.Column<int>(nullable: false),
                     ActivityType = table.Column<string>(nullable: true),
-                    Status = table.Column<string>(nullable: true),
-                    PocId = table.Column<string>(nullable: true),
-                    PocName = table.Column<string>(nullable: true),
-                    PocContactNum = table.Column<string>(nullable: true)
+                    Status = table.Column<string>(nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Events", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "EventUnregisteredUsers",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EventId = table.Column<string>(nullable: true),
+                    Email = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_EventUnregisteredUsers", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "FeedbackQuestions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    QuestionTye = table.Column<string>(nullable: true),
+                    Question = table.Column<string>(nullable: true),
+                    ParticipantType = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FeedbackQuestions", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "ParticipantFeedbacks",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    EventId = table.Column<int>(nullable: false),
+                    Email = table.Column<string>(nullable: true),
+                    ParticipantType = table.Column<string>(nullable: true),
+                    QuestionId = table.Column<int>(nullable: false),
+                    Answer = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_ParticipantFeedbacks", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -185,6 +272,26 @@ namespace FMS_Web_Api.Migrations
                         onDelete: ReferentialAction.Cascade);
                 });
 
+            migrationBuilder.CreateTable(
+                name: "FeedbackOptions",
+                columns: table => new
+                {
+                    Id = table.Column<int>(nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    QuestionId = table.Column<int>(nullable: false),
+                    Option = table.Column<string>(nullable: true)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_FeedbackOptions", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_FeedbackOptions_FeedbackQuestions_QuestionId",
+                        column: x => x.QuestionId,
+                        principalTable: "FeedbackQuestions",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                });
+
             migrationBuilder.CreateIndex(
                 name: "IX_AspNetRoleClaims_RoleId",
                 table: "AspNetRoleClaims",
@@ -223,6 +330,11 @@ namespace FMS_Web_Api.Migrations
                 column: "NormalizedUserName",
                 unique: true,
                 filter: "[NormalizedUserName] IS NOT NULL");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_FeedbackOptions_QuestionId",
+                table: "FeedbackOptions",
+                column: "QuestionId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
@@ -243,13 +355,34 @@ namespace FMS_Web_Api.Migrations
                 name: "AspNetUserTokens");
 
             migrationBuilder.DropTable(
+                name: "EventNotParticipatedUsers");
+
+            migrationBuilder.DropTable(
+                name: "EventParticipatedUsers");
+
+            migrationBuilder.DropTable(
+                name: "EventPocDetails");
+
+            migrationBuilder.DropTable(
                 name: "Events");
+
+            migrationBuilder.DropTable(
+                name: "EventUnregisteredUsers");
+
+            migrationBuilder.DropTable(
+                name: "FeedbackOptions");
+
+            migrationBuilder.DropTable(
+                name: "ParticipantFeedbacks");
 
             migrationBuilder.DropTable(
                 name: "AspNetRoles");
 
             migrationBuilder.DropTable(
                 name: "AspNetUsers");
+
+            migrationBuilder.DropTable(
+                name: "FeedbackQuestions");
         }
     }
 }

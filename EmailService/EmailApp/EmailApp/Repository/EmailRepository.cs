@@ -5,6 +5,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Threading.Tasks;
 
 namespace EmailApp.Repository
@@ -56,10 +57,10 @@ namespace EmailApp.Repository
                 foreach (var participatedUser in eventParticipatedUser)
                 {
                     ParticipatedAddresses.Add(participatedUser.Email);
+                    emailMessage = "<h3>Please click the below link to share your feedback<h/3><br><a href='" + hostUrl + "/participantfeedback?eventid=" + evnt.Id + "&type=participated&email=" + participatedUser.Email + "'>Share feedback!</a>";
+                    await SendMails(ParticipatedAddresses, emailSubject, emailMessage);                    
+                    ParticipatedAddresses.Clear();
                 }
-
-                emailMessage = "<h3>Please click the below link to share your feedback<h/3><br><a href='" + hostUrl + "/participantfeedback?eventid=" + evnt.EventId + "&type=participated'>Share feedback!</a>";
-                await SendMails(ParticipatedAddresses, emailSubject, emailMessage);
             }
 
             var eventNotParticipatedUser = await _context.EventNotParticipatedUsers.Where(x => x.EventId == evnt.EventId).ToListAsync();
@@ -69,9 +70,11 @@ namespace EmailApp.Repository
                 foreach (var notparticipatedUser in eventNotParticipatedUser)
                 {
                     NotParticipatedAddresses.Add(notparticipatedUser.Email);
+                    emailMessage = "<h3>Please click the below link to share your feedback<h/3><br><a href='" + hostUrl + "/participantfeedback?eventid=" + evnt.Id + "&type=notparticipated&email=" + notparticipatedUser.Email + "'>Share feedback!</a>";
+                    await SendMails(NotParticipatedAddresses, emailSubject, emailMessage);
+                    NotParticipatedAddresses.Clear();
                 }
-                emailMessage = "<h3>Please click the below link to share your feedback<h/3><br><a href='" + hostUrl + "/participantfeedback?eventid=" + evnt.EventId + "&type=notparticipated'>Share feedback!</a>";
-                await SendMails(NotParticipatedAddresses, emailSubject, emailMessage);
+               
             }
 
             var eventunregisteredUser = await _context.EventUnregisteredUsers.Where(x => x.EventId == evnt.EventId).ToListAsync();
@@ -81,16 +84,18 @@ namespace EmailApp.Repository
                 foreach (var unregisteredUser in eventunregisteredUser)
                 {
                     UnregisteredAddresses.Add(unregisteredUser.Email);
+                    emailMessage = "<h3>Please click the below link to share your feedback<h/3><br><a href='" + hostUrl + "/participantfeedback?eventid=" + evnt.Id + "&type=unregistered&email=" + unregisteredUser.Email + "'>Share feedback!</a>";
+                    await SendMails(UnregisteredAddresses, emailSubject, emailMessage);
+                    UnregisteredAddresses.Clear();
                 }
-                emailMessage = "<h3>Please click the below link to share your feedback<h/3><br><a href='" + hostUrl + "/participantfeedback?eventid=" + evnt.EventId + "&type=unregistered'>Share feedback!</a>";
-                await SendMails(UnregisteredAddresses, emailSubject, emailMessage);
+               
             }
 
 
             return true;
         }
         private async Task<bool> SendMails(List<string> ToAddresses, string Subject, string Body)
-        {
+        {         
             var message = new Message(ToAddresses, Subject, Body, null);
             await _emailSender.SendEmailAsync(message);
             return true;
@@ -98,4 +103,4 @@ namespace EmailApp.Repository
         }
     }
 }
-    
+

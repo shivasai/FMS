@@ -38,6 +38,52 @@ namespace FMS_Web_Api.Tests
            
         }
         [Test]
+        public async Task PostFbQuestionsByPartIdAsync_ShouldPostFbQuestionsByPartId()
+        {
+            PostFeedback postFeedback = new PostFeedback();
+            postFeedback.ParticipantType = "Participated";
+            List<FeedbackVM> feedbackVMs = new List<FeedbackVM>();
+            FeedbackVM feedback = new FeedbackVM()
+            {
+                Id = 1,
+                Question = "How is the event?",
+                QuestionTye = "MultipleAnswer"
+            };
+            feedbackVMs.Add(feedback);
+            _feedbackRepository.Setup(x => x.GetFeedbackQuestionsByParticipantType(postFeedback)).ReturnsAsync(feedbackVMs);
+            IEnumerable<FeedbackVM> result = await feedbackController.PostFeedbackQuestionsByParticipantType(postFeedback);
+            Assert.IsNotEmpty(result);
+        }
+        [Test]
+        public async Task GetFeedbackQnsByIdAsync_ShouldReturnGetFeedbackQns_FeedbackQnExists()
+        {
+            int id = 1;
+            FeedbackVM feedback = new FeedbackVM()
+            {
+                Id = 1,
+                Question = "How is the event?",
+                QuestionTye = "MultipleAnswer"
+            };
+            _feedbackRepository.Setup(x => x.GetFeedbackQuestionById(id)).ReturnsAsync(feedback);
+            FeedbackVM result = await feedbackController.Get(id);
+            Assert.AreEqual(feedback.Id, result.Id);
+            Assert.AreEqual(feedback.Question, result.Question);
+            Assert.AreEqual(feedback.QuestionTye, result.QuestionTye);
+        }
+        [Test]
+        public async Task SaveFbQstnAndAnsAsync_ShouldSaveFbQstnAndAns()
+        {
+            PostFeedback postFeedback = new PostFeedback();
+            postFeedback.ParticipantType = "Participated";
+            PostFeedback resultFeedback = new PostFeedback();
+            resultFeedback.ParticipantType = "Participated";
+            resultFeedback.QuestionTye = "MultipleAnswer";
+
+            _feedbackRepository.Setup(x => x.SaveFeedbackQuestionAndAnswers(postFeedback)).ReturnsAsync(resultFeedback);
+            PostFeedback result = await feedbackController.Post(postFeedback);
+            Assert.AreEqual(result.QuestionTye, "MultipleAnswer");           
+        }
+        [Test]
         public async Task GetParticipantFbAsync_ShouldReturnParticipantFb_ParticipantFbExists()
         {
             int id = 1;

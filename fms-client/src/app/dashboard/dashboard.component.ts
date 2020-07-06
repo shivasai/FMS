@@ -11,7 +11,7 @@ import { Dashboard } from '@app/_models/dashboard';
 export class DashboardComponent implements OnInit {
 
   constructor(private dashboardService: DashboardService) { }
-  dashboard : Dashboard;
+  dashboard : Dashboard = new Dashboard();
   ngOnInit(): void {
     this.dashboardService.dashboardData()
     .pipe(first())

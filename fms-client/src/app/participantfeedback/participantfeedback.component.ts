@@ -4,6 +4,8 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { first } from 'rxjs/operators';
 import { FeedbackQuestion } from '@app/_models/feedbackquestion';
 import { ParticipantFb } from '@app/_models/participantFb';
+import { EventService } from '@app/_services/events.service';
+import { Events } from '@app/_models/events';
 @Component({
   selector: 'app-participantfeedback',
   templateUrl: './participantfeedback.component.html',
@@ -13,13 +15,15 @@ export class ParticipantfeedbackComponent implements OnInit {
   eventid: number;
   participantType: string; 
   email : string;
+  eventDetails : Events = new Events();
   postFeedback : FeedbackQuestion = new FeedbackQuestion();
   questionData:any[];
   participantFb = new Array<ParticipantFb>();
-  constructor(private feedbackService: FeedbackService,private route: ActivatedRoute,private router: Router) { }
+  constructor(private feedbackService: FeedbackService,private route: ActivatedRoute,private router: Router, private eventService: EventService) { }
 
   ngOnInit(): void {
     this.eventid = this.route.snapshot.queryParams['eventid'];
+    this.LoadEventName();
     this.participantType = this.route.snapshot.queryParams['type'];
     this.email = this.route.snapshot.queryParams['email'];
     if(this.participantType == "participated"){
@@ -44,6 +48,17 @@ export class ParticipantfeedbackComponent implements OnInit {
                   
                 });
 
+  }
+  LoadEventName(){
+    this.eventService.EventDetails(this.eventid)
+    .pipe(first())
+            .subscribe(
+                data => {
+                  this.eventDetails = data;
+                },
+                error => {
+                  alert(error)
+                });
   }
   LoadRequestData(inputData: any){
     for(let singleData of inputData){
