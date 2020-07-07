@@ -76,6 +76,14 @@ namespace FMS_Web_Api.Tests
             var result = await eventsController.GetEventPocDetails(id);
             Assert.AreEqual(result.ToList().Count(), 2);
         }
-      
+        [Test]
+        public async Task DataFeedAsync_ShouldDataFeed_WhenDataExists()
+        {
+           
+            _eventRepository.Setup(x => x.DataFeed()).ReturnsAsync(true);
+
+            ActionResult result = await eventsController.PutDataFeed();
+            Assert.That(result, Is.InstanceOf<Microsoft.AspNetCore.Mvc.OkResult>());
+        }
     }
 }

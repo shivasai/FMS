@@ -29,14 +29,12 @@ namespace FMS_Web_Api.Controllers
         public async Task<ActionResult<IEnumerable<Event>>> GetEvent()
         {
             return await _repository.GetAll();
-            //return await _context.Events.ToListAsync();
         }
         [AllowAnonymous]
         // GET: api/Events/5
         [HttpGet("{id}")]
         public async Task<ActionResult<Event>> GetEvent(int id)
         {
-            //var @event = await _context.Events.FindAsync(id);
             var @event = await _repository.Get(id);
             if (@event == null)
             {
@@ -51,11 +49,10 @@ namespace FMS_Web_Api.Controllers
         public async Task<IEnumerable<EventPocDetail>> GetEventPocDetails(int id)
         {
             return await _repository.GetEventPocDetails(id);
-            //return await _context.Events.ToListAsync();
         }       
         [HttpPut()]
         [Route("DataFeed")]
-        public async Task<IActionResult> PutDataFeed()
+        public async Task<ActionResult> PutDataFeed()
         {
             bool res =  await _repository.DataFeed();
             if (res == true)

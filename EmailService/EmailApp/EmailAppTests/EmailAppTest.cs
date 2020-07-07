@@ -30,5 +30,14 @@ namespace EmailAppTests
             ActionResult res = await mailServiceController.Post(evnt);
             Assert.That(res, Is.InstanceOf<OkResult>());
         }
+        [Test]
+        public async Task SendReport()
+        {
+            Report report = new Report();
+            report.Email = "test@gmail.com";            
+            _emailRepository.Setup(x => x.SendReport(report.Email)).ReturnsAsync(true);
+            ActionResult res = await mailServiceController.SendReport(report);
+            Assert.That(res, Is.InstanceOf<OkResult>());
+        }
     }
 }
