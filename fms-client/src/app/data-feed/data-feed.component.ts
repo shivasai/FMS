@@ -1,5 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { DataFeedService } from '@app/_services/datafeed.service';
+import { first } from 'rxjs/operators';
 
 @Component({
   selector: 'app-data-feed',
@@ -7,21 +8,27 @@ import { DataFeedService } from '@app/_services/datafeed.service';
   styleUrls: ['./data-feed.component.less']
 })
 export class DataFeedComponent implements OnInit {
-  @ViewChild('fileInput') fileInput;
+  
   message: string;
   constructor(private datafeedService: DataFeedService) { }
 
-  ngOnInit(): void {
+  ngOnInit(): void {    
   }
-  uploadFile() {
-    let formData = new FormData();
-    formData.append('upload', this.fileInput.nativeElement.files[0])
-
-    this.datafeedService.UploadExcel(formData).subscribe(result => {
-      this.message = result.toString();
-      
-    });
-   
-
+  DataFeed(){
+    this.datafeedService.DataFeed()
+    .pipe(first())
+    .subscribe(
+        data => {
+          this.message="Data Feed Successful!!!";
+          setTimeout(()=>{ 
+            this.message="";
+           }, 3000);           
+        },
+        error => {
+          this.message="An error occured";
+          setTimeout(()=>{ 
+            this.message="";
+           }, 3000);
+        });
   }
 }

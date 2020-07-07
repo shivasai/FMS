@@ -1,17 +1,19 @@
 <div class="container">
     <br>
-    <h1 align='center'>Excel file upload example</h1>
+    <h1 align='center'>To feed the data to database please follow below steps</h1>
     <hr>
+    <p>1. Update the files in FMS_Web_Api\DataFeed folder in the Server.</p>
+    <p>2. Once data in the the files are updated click on below Data Feed button to dump data to database</p>
     <div class="row">
         <div class="col-md-6">
-            <input class="form-control" type="file" #fileInput />
+            
         </div>
         <div class="col-md-6">
-            <button class="btn btn-primary" (click)="uploadFile();">Upload</button>
+            <button class="btn btn-primary" (click) = "DataFeed()">Data Feed</button>
         </div>
     </div>
     <div>
-        <h4 class="alert-success">{{message}}</h4>
+        <h4 class="text-center  mt-3">{{message}}</h4>
     </div>
     <div>        
     </div>

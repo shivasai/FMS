@@ -47,6 +47,8 @@ namespace FMS_Web_Api
             services.AddScoped<FeedbackOptionRepository>();
             services.AddScoped<FeedbackRepository>();
             services.AddScoped<EventParticipatedUsersRepository>();
+            services.AddScoped<EventNotParticipatedUsersRepository>();
+            services.AddScoped<EventUnregisteredUsersRepository>();
             services.AddScoped<ParticipantFeedbackRepository>();
             services.AddScoped<IEventRepository, EventRepository>();
             services.AddScoped<IDashboardRepository, DashboardRepository>();

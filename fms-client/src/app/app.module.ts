@@ -53,7 +53,7 @@ import { DataFeedComponent } from './data-feed/data-feed.component'
         FeedbackComponent ,
         FeedbackdetailsComponent ,
         ParticipantfeedbackComponent,                      
-        EventdetailsComponent
+        EventdetailsComponent        
 , ReportComponent , ThankyouComponent , DataFeedComponent   ],
     providers: [
         { provide: HTTP_INTERCEPTORS, useClass: JwtInterceptor, multi: true },

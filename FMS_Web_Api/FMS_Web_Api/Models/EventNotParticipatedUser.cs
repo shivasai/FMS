@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace FMS_Web_Api.Models
 {
-    public class EventNotParticipatedUser
+    public class EventNotParticipatedUser : IEntity
     {
         [Key]
         public int Id { get; set; }

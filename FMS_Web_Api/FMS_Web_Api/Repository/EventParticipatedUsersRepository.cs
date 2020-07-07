@@ -12,6 +12,7 @@ namespace FMS_Web_Api.Repository
         public EventParticipatedUsersRepository(ApplicationDbContext context) : base(context)
         {
 
+
         }
     }
 }
