@@ -1,0 +1,73 @@
+Started by user Shiva Sai Kalishetti
+Running as SYSTEM
+Building in workspace C:\WINDOWS\system32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi
+No credentials specified
+ > git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/shivasai/FMS.git # timeout=10
+Fetching upstream changes from https://github.com/shivasai/FMS.git
+ > git.exe --version # timeout=10
+ > git.exe fetch --tags --progress -- https://github.com/shivasai/FMS.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision 2edc4d951be15a0238fc89ffa458c7a55b39d704 (refs/remotes/origin/master)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 2edc4d951be15a0238fc89ffa458c7a55b39d704 # timeout=10
+Commit message: "Unit test changes"
+ > git.exe rev-list --no-walk 84eb1d97fb0e4ab61e661bfca557e384b15e104b # timeout=10
+[FMS WebApi] $ cmd /c call C:\WINDOWS\TEMP\jenkins4463167739533511955.bat
+
+C:\WINDOWS\system32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi>cd FMS_Web_Api 
+
+C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api>dotnet restore 
+  Determining projects to restore...
+C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api.Tests\FMS_Web_Api.Tests.csproj : warning NU1701: Package 'Microsoft.AspNet.WebApi.Core 5.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project. [C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api.sln]
+  Restored C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api.Tests\FMS_Web_Api.Tests.csproj (in 14.22 sec).
+  Restored C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api\FMS_Web_Api.csproj (in 14.22 sec).
+
+C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api>dotnet build 
+Microsoft (R) Build Engine version 16.6.0+5ff7b0c9e for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Determining projects to restore...
+C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api.Tests\FMS_Web_Api.Tests.csproj : warning NU1701: Package 'Microsoft.AspNet.WebApi.Core 5.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project. [C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api.sln]
+  All projects are up-to-date for restore.
+C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api.Tests\FMS_Web_Api.Tests.csproj : warning NU1701: Package 'Microsoft.AspNet.WebApi.Core 5.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.
+Controllers\AuthController.cs(136,42): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread. [C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api\FMS_Web_Api.csproj]
+Repository\DashboardRepository.cs(24,13): warning CS0219: The variable 'i' is assigned but its value is never used [C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api\FMS_Web_Api.csproj]
+Repository\EventRepository.cs(113,29): warning CS0168: The variable 'ex' is declared but never used [C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api\FMS_Web_Api.csproj]
+  FMS_Web_Api -> C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api\bin\Debug\netcoreapp3.1\FMS_Web_Api.dll
+DashboardTests.cs(26,17): warning CS0219: The variable 'id' is assigned but its value is never used [C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api.Tests\FMS_Web_Api.Tests.csproj]
+  FMS_Web_Api.Tests -> C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api.Tests\bin\Debug\netcoreapp3.1\FMS_Web_Api.Tests.dll
+
+Build succeeded.
+
+C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api.Tests\FMS_Web_Api.Tests.csproj : warning NU1701: Package 'Microsoft.AspNet.WebApi.Core 5.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project. [C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api.sln]
+C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api.Tests\FMS_Web_Api.Tests.csproj : warning NU1701: Package 'Microsoft.AspNet.WebApi.Core 5.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.
+Controllers\AuthController.cs(136,42): warning CS1998: This async method lacks 'await' operators and will run synchronously. Consider using the 'await' operator to await non-blocking API calls, or 'await Task.Run(...)' to do CPU-bound work on a background thread. [C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api\FMS_Web_Api.csproj]
+Repository\DashboardRepository.cs(24,13): warning CS0219: The variable 'i' is assigned but its value is never used [C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api\FMS_Web_Api.csproj]
+Repository\EventRepository.cs(113,29): warning CS0168: The variable 'ex' is declared but never used [C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api\FMS_Web_Api.csproj]
+DashboardTests.cs(26,17): warning CS0219: The variable 'id' is assigned but its value is never used [C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api.Tests\FMS_Web_Api.Tests.csproj]
+    6 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:01:45.09
+
+C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api>dotnet test 
+C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api.Tests\FMS_Web_Api.Tests.csproj : warning NU1701: Package 'Microsoft.AspNet.WebApi.Core 5.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project. [C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api.sln]
+C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api.Tests\FMS_Web_Api.Tests.csproj : warning NU1701: Package 'Microsoft.AspNet.WebApi.Core 5.2.7' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8' instead of the project target framework '.NETCoreApp,Version=v3.1'. This package may not be fully compatible with your project.
+Test run for C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api\FMS_Web_Api.Tests\bin\Debug\netcoreapp3.1\FMS_Web_Api.Tests.dll(.NETCoreApp,Version=v3.1)
+Microsoft (R) Test Execution Command Line Tool Version 16.6.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+
+A total of 1 test files matched the specified pattern.
+
+Test Run Successful.
+Total tests: 14
+     Passed: 14
+ Total time: 8.6410 Seconds
+
+C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\FMS WebApi\FMS_Web_Api>exit 0 
+Finished: SUCCESS

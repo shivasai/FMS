@@ -1,0 +1,60 @@
+Started by user Shiva Sai Kalishetti
+Running as SYSTEM
+Building in workspace C:\WINDOWS\system32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\EmailService
+No credentials specified
+ > git.exe rev-parse --is-inside-work-tree # timeout=10
+Fetching changes from the remote Git repository
+ > git.exe config remote.origin.url https://github.com/shivasai/FMS.git # timeout=10
+Fetching upstream changes from https://github.com/shivasai/FMS.git
+ > git.exe --version # timeout=10
+ > git.exe fetch --tags --progress -- https://github.com/shivasai/FMS.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/master^{commit}" # timeout=10
+ > git.exe rev-parse "refs/remotes/origin/origin/master^{commit}" # timeout=10
+Checking out Revision 2edc4d951be15a0238fc89ffa458c7a55b39d704 (refs/remotes/origin/master)
+ > git.exe config core.sparsecheckout # timeout=10
+ > git.exe checkout -f 2edc4d951be15a0238fc89ffa458c7a55b39d704 # timeout=10
+Commit message: "Unit test changes"
+ > git.exe rev-list --no-walk f86bb30bf5442b682195e56b9030df9639f40308 # timeout=10
+[EmailService] $ cmd /c call C:\WINDOWS\TEMP\jenkins362449545906376112.bat
+
+C:\WINDOWS\system32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\EmailService>cd EmailService 
+
+C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\EmailService\EmailService>cd EmailApp 
+
+C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\EmailService\EmailService\EmailApp>dotnet restore 
+  Determining projects to restore...
+  Restored C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\EmailService\EmailService\EmailApp\EmailAppTests\EmailAppTests.csproj (in 6.29 sec).
+  2 of 3 projects are up-to-date for restore.
+
+C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\EmailService\EmailService\EmailApp>dotnet build 
+Microsoft (R) Build Engine version 16.6.0+5ff7b0c9e for .NET Core
+Copyright (C) Microsoft Corporation. All rights reserved.
+
+  Determining projects to restore...
+  All projects are up-to-date for restore.
+  EmailService -> C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\EmailService\EmailService\EmailApp\EmailService\bin\Debug\netcoreapp3.1\EmailService.dll
+  EmailApp -> C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\EmailService\EmailService\EmailApp\EmailApp\bin\Debug\netcoreapp3.1\EmailApp.dll
+  EmailAppTests -> C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\EmailService\EmailService\EmailApp\EmailAppTests\bin\Debug\netcoreapp3.1\EmailAppTests.dll
+
+Build succeeded.
+    0 Warning(s)
+    0 Error(s)
+
+Time Elapsed 00:00:40.69
+
+C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\EmailService\EmailService\EmailApp>dotnet test 
+Test run for C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\EmailService\EmailService\EmailApp\EmailAppTests\bin\Debug\netcoreapp3.1\EmailAppTests.dll(.NETCoreApp,Version=v3.1)
+Microsoft (R) Test Execution Command Line Tool Version 16.6.0
+Copyright (c) Microsoft Corporation.  All rights reserved.
+
+Starting test execution, please wait...
+
+A total of 1 test files matched the specified pattern.
+
+Test Run Successful.
+Total tests: 2
+     Passed: 2
+ Total time: 22.2705 Seconds
+
+C:\Windows\System32\config\systemprofile\AppData\Local\Jenkins.jenkins\workspace\EmailService\EmailService\EmailApp>exit 0 
+Finished: SUCCESS
