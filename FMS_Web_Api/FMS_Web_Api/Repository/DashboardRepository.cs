@@ -20,8 +20,7 @@ namespace FMS_Web_Api.Repository
             _eventParticipatedUserRepository = eventParticipatedUsersRepository;
         }
         public async Task<DashboardVM> Get()
-        {            
-            int i=1;
+        {                        
             DashboardVM dashboard = new DashboardVM();
             var events = await _eventRepository.GetAll();            
             dashboard.TotalEvents = events.Count;
