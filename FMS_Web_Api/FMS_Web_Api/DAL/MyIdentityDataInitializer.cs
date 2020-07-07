@@ -58,6 +58,38 @@ namespace FMS_Web_Api.DAL
                                         "Admin").Wait();
                 }
             }
+            if (userManager.FindByNameAsync
+        ("pmouser").Result == null)
+            {
+                IdentityUser user = new IdentityUser();
+                user.UserName = "pmouser";
+                user.Email = "pmouser@gmail.com";
+
+                IdentityResult result = userManager.CreateAsync
+                (user, "PmoUser@123").Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(user,
+                                        "PMO").Wait();
+                }
+            }
+            if (userManager.FindByNameAsync
+        ("pmcuser").Result == null)
+            {
+                IdentityUser user = new IdentityUser();
+                user.UserName = "pmcuser";
+                user.Email = "pmcuser@gmail.com";
+
+                IdentityResult result = userManager.CreateAsync
+                (user, "PmcUser@123").Result;
+
+                if (result.Succeeded)
+                {
+                    userManager.AddToRoleAsync(user,
+                                        "PMC").Wait();
+                }
+            }
 
         }
         public static void SeedData
